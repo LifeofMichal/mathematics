@@ -1,0 +1,17 @@
+{
+    "name": "mathematics",
+    "version": "1.0.0",
+    "description": "mathematical functions in typescript",
+    "scripts": {
+        "dev": "nodemon",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "LifeofMichal",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^2.0.2",
+        "ts-node": "^8.7.0",
+        "typescript": "^3.8.3"
+    },
+    "dependencies": {}
+}
