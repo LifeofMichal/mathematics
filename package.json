@@ -1,7 +1,7 @@
 {
     "name": "mathematics",
     "version": "1.0.0",
-    "description": "mathematical functions in typescript",
+    "description": "Mathematical functions and equations for testing provess in algortihmic thinking. Just some math in TypeScript.",
     "scripts": {
         "dev": "nodemon",
         "test": "echo \"Error: no test specified\" && exit 1"
