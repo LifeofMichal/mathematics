@@ -47,7 +47,7 @@ const {
 
     const i: number = -5
     test(`Throw error when passed input (${i}) is lower than 1`, () => {
-        expect(() => CalculateNthFibonacciNumber(i)).toThrow(Error)
+        expect(() => CalculateNthFibonacciNumber(i)).toThrow(`Input must 1 or higher`)
     })
 }
 
