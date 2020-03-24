@@ -8,9 +8,8 @@ export class Functions {
     public ReverseString(value: string): string {
         const regexWhiteSpaces: RegExp = /^\s*$/g
         let revValue: string = ""
-
         if (regexWhiteSpaces.test(value)) throw new Error(`Value "${value}" contains only white spaces`)
-        if (value.length <= 1) throw new Error(`Value "${value}" too small`)
+        if (value.length <= 1) throw new Error(`Value "${value}" must be larger than 0`)
         // if (value) revValue = value.split("").reverse().join("") // 0.99 - 1.03s
         if (value) { // 0.98 - 1.01s - gets slower faster depending on string length
             for (let i = value.length; i > 0; i--) {
@@ -153,7 +152,7 @@ export class Functions {
      * @returns Number of bits in integer value.
      */
     public CountSetBits(value: number): number {
-        let bitCount = value.toString(2).length
+        let bitCount = PrintBitPattern(value).length
         return bitCount
     }
 
@@ -164,6 +163,8 @@ export class Functions {
         let lastDigit = num % 10
 
         switch (lastDigit) {
+            case 0:
+                return ""
             case 1:
                 return "st"
             case 2:
@@ -180,7 +181,7 @@ export class Functions {
     }
 
     public IsPrime(num: number): boolean {
-        if (num == 1) return false
+        if (num == 0 || num == 1) return false
 
         for (let i = 2; i < num; i++) {
             if (num % i === 0) {
@@ -215,7 +216,7 @@ const {
     const number: number = 4
     const ordinal = AddOrdinalToNumber(number)
     const nthFN = CalculateNthFibonacciNumber(number)
-    console.log(`#2 - ${number}${number > 0 ? ordinal : ""}(F${number - 1}) Fibonacci Number is: ${nthFN}`)
+    console.log(`#2 - ${number}${ordinal}(F${number - 1}) Fibonacci Number is: ${nthFN}`)
 }
 
 { // #3 PAD NUMBER WITH ZEROES
@@ -233,7 +234,7 @@ const {
     const ordinal = AddOrdinalToNumber(number)
     let arrNumbers: number[] = [17, 1337, 3, 12, 5, 67, 0, 23, 999, 4321, 6991, 16, 91]
     const nthLargestNumber = FindNthLargestNumber(arrNumbers, number)
-    console.log(`#5 - ${nthLargestNumber} is the ${number}${number > 0 ? ordinal : ""} largest number from the list - ${arrNumbers}`)
+    console.log(`#5 - ${nthLargestNumber} is the ${number}${ordinal} largest number from the list - ${arrNumbers}`)
 }
 
 { // #6 SELECT PRIME NUMBERS

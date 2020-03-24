@@ -4,12 +4,15 @@
     "description": "Mathematical functions and equations for testing provess in algortihmic thinking. Just some math in TypeScript.",
     "scripts": {
         "dev": "nodemon",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
     },
     "author": "LifeofMichal",
     "license": "ISC",
     "devDependencies": {
+        "@types/jest": "^25.1.4",
+        "jest": "^25.1.0",
         "nodemon": "^2.0.2",
+        "ts-jest": "^25.2.1",
         "ts-node": "^8.7.0",
         "typescript": "^3.8.3"
     },
