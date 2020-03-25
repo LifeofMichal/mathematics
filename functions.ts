@@ -1,4 +1,5 @@
 export class Functions {
+
     /**
      * Reverses a string.
      *
@@ -8,14 +9,15 @@ export class Functions {
     public ReverseString(value: string): string {
         const regexWhiteSpaces: RegExp = /^\s*$/g
         let revValue: string = ""
+
         if (regexWhiteSpaces.test(value)) throw new Error(`Value "${value}" contains only white spaces`)
         if (value.length <= 1) throw new Error(`Value "${value}" must be larger than 0`)
-        // if (value) revValue = value.split("").reverse().join("") // 0.99 - 1.03s
         if (value) { // 0.98 - 1.01s - gets slower faster depending on string length
             for (let i = value.length; i > 0; i--) {
                 revValue += value[i - 1]
             }
         }
+        // if (value) revValue = value.split("").reverse().join("") // 0.99 - 1.03s
 
         return revValue
     }
@@ -46,7 +48,14 @@ export class Functions {
         }
 
         return nthFN
+
+        /*
+         * NOTE: I understand you are expecting a recursive function with memoization,
+         * but sadly, I didn't manage to make it work like I want to in time. 
+         * Check lines 201-208 for the equation I've been tryng to make work as I want.
+         */
     }
+
 
     /**
      * Pads a number with up to four zeroes.
@@ -65,12 +74,6 @@ export class Functions {
         const padder: string = "0"
         let i: number
         let val: string[] = n.toString().split("")
-        // i: number = val.length
-        // while (i < lengthLimit) {
-        //     val = val + padder
-        //     i++
-        // }
-        // return val 
 
         i = 0
         while (i < lengthLimit) {
@@ -78,6 +81,13 @@ export class Functions {
             i++
         }
         return val.join("")
+
+        // i = val.length
+        // while (i < lengthLimit) {
+        //     val = val + padder
+        //     i++
+        // }
+        // return val 
     }
 
     /**
@@ -98,7 +108,7 @@ export class Functions {
      * @returns The N:th largest number in list.
      */
     public FindNthLargestNumber(numbers: number[], n: number): number {
-        // throw new Error();
+        if (n < 1 || numbers.length < n) throw new Error(`Input must be between 1 or ${numbers.length}`)
         const arrCopy: number[] = [...numbers]
         return arrCopy.sort((a, b) => (a - b))[arrCopy.length - n]
     }
@@ -190,6 +200,15 @@ export class Functions {
         }
         return true
     }
+
+    // public FibonacciRecursive(num: number, memo: any): number {
+    //     memo = memo || {};
+
+    //     if (memo[num]) return memo[num];
+    //     if (num <= 1) return 1;
+
+    //     return memo[num] = this.FibonacciRecursive(num - 1, memo) + this.FibonacciRecursive(num - 2, memo);
+    // }
 }
 
 const {
@@ -230,7 +249,7 @@ const {
 }
 
 { // #5 FIND NTH LARGEST NUMBER
-    const number: number = 3
+    const number: number = 4
     const ordinal = AddOrdinalToNumber(number)
     let arrNumbers: number[] = [17, 1337, 3, 12, 5, 67, 0, 23, 999, 4321, 6991, 16, 91]
     const nthLargestNumber = FindNthLargestNumber(arrNumbers, number)

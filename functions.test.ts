@@ -91,6 +91,11 @@ const {
     test(`The ${n}${AddOrdinalToNumber(n)} largest number should NOT be ${notNthLatgestNumber}`, () => {
         expect(FindNthLargestNumber(listOfNumbers, n)).not.toBe(notNthLatgestNumber)
     })
+
+    const nTooHigh: number = listOfNumbers.length + 1
+    test(`The value of n should not be lower than 1 or higher than ${listOfNumbers.length}`, () => {
+        expect(() => FindNthLargestNumber(listOfNumbers, nTooHigh)).toThrow(`Input must be between 1 or ${listOfNumbers.length}`)
+    })
 }
 
 { // #6 SELECT PRIME NUMBERS TESTS
