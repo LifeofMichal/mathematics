@@ -48,12 +48,6 @@ export class Functions {
         }
 
         return nthFN
-
-        /*
-         * NOTE: I understand you are expecting a recursive function with memoization,
-         * but sadly, I didn't manage to make it work like I want to in time. 
-         * Check lines 201-208 for the equation I've been tryng to make work as I want.
-         */
     }
 
 
@@ -200,15 +194,6 @@ export class Functions {
         }
         return true
     }
-
-    // public FibonacciRecursive(num: number, memo: any): number {
-    //     memo = memo || {};
-
-    //     if (memo[num]) return memo[num];
-    //     if (num <= 1) return 1;
-
-    //     return memo[num] = this.FibonacciRecursive(num - 1, memo) + this.FibonacciRecursive(num - 2, memo);
-    // }
 }
 
 const {
