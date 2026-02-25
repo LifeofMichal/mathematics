@@ -1,12 +1,8 @@
-</> YAML
-
-name: Run Tests in Vitest
-
 on:
   push:
-    branches: [ "*" ]
+    branches: ["*"]
   pull_request:
-    branches: [ "*" ]
+    branches: ["*"]
 
 jobs:
   test:
