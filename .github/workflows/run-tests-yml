@@ -1,6 +1,6 @@
 </> YAML
 
-name: Run Tests
+name: Run Tests in Vitest
 
 on:
   push:
